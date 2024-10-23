@@ -4,7 +4,7 @@ import numpy as np
 
 
 testImage1 = cv2.imread("images/musk.jpg")
-
+cv2.imshow("Original", testImage1)
 
 #Primer Prueba para revisar como guarda los datos de color
 '''
@@ -46,6 +46,7 @@ cv2.imshow("No color", testImage_no_color)
 '''
 
 #Tercera prueba donde dividimos la imagen en 4 cuadrantes y eliminamos un color en cada cuadrante
+'''
 cuadrante= testImage1.copy()
 height, width, _ = testImage1.shape
 half_height = height // 2
@@ -54,9 +55,10 @@ half_width = width // 2
 cuadrante[0:half_height, half_width:width, 1] = 0 
 cuadrante[half_height:height, 0:half_width, 2] = 0  # Red channel = 0
 cuadrante[half_height:height, half_width:width, 0] = 0  # Blue channel = 0
-
-cv2.imshow("Original", testImage1)
 cv2.imshow("Cuadrante", cuadrante)
+'''
+
+
 
 while True:
     c = cv2.waitKey(20)

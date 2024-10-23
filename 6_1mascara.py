@@ -20,7 +20,7 @@ decir un valor entre 0 y 255 perfecto para una mascara binaria o escala de grise
 mask1[50:200, 170:320] = 255
 
 cv2.imshow("Original", image)
-cv2.imshow("Mask", mask1)
+cv2.imshow("Mask1", mask1)
 
 
 #mascara en rango de colores
@@ -28,16 +28,17 @@ cv2.imshow("Mask", mask1)
 mask2 = cv2.inRange(image, (0,0,0), (255,100,100))
 
 cv2.imshow("Original", image)
-cv2.imshow("Mask", mask2)
+#cv2.imshow("Mask2", mask2)
 
-#cv2.bitwise_and(src1, src2, dst=None, mask=None)
 '''
 src1: Primera imagen o matriz de entrada.
 src2: Segunda imagen o matriz de entrada. En este caso, es la misma que src1 (es decir, image).
 dst: (Opcional) Salida en la que se guardará el resultado. Si no se especifica, se crea una nueva imagen de salida.
 mask: (Opcional) Una máscara opcional. Si se proporciona, la operación se aplicará solo a los píxeles donde la máscara tenga un valor diferente de 0.
 '''
-result = cv2.bitwise_and(image, image, mask=mask2)
+result = cv2.bitwise_and(image, image, mask=mask1)
+#result = cv2.bitwise_and(image, image, mask=mask2)
+
 cv2.imshow("AND", result)
 
 while True:
